@@ -145,4 +145,8 @@ Build an end-to-end analytics solution capable of:
 
 B.Sc. Computer Science Student
 
-Aspiring Data Analyst
+Aspiring Data Analyst | Tableau | SQL | Python | Machine Learning
+---
+
+⭐ If you found this project useful, consider giving this repository a star.
+
