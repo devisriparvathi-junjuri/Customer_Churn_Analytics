@@ -52,7 +52,7 @@ Customer_Churn_Analytics/
 ├── ML_Model/
 │   ├── 01_Feature_Engineering.ipynb
 │   └── 02_Model_Training.ipynb
-│
+│   ├── 03_Model_Evaluation.ipynb
 ├── Tableau/
 │
 ├── Images/
