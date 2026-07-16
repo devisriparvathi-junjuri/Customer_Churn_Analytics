@@ -1,0 +1,2249 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20253.26.0109.0333                               -->
+<workbook original-version='18.1' source-build='2025.3.2 (20253.26.0109.0333)' source-platform='win' version='18.1' xml:base='https://localhost:8080' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location derived-from='https://public.tableau.com/workbooks/CustomerChurnAnalysis_17841863655100?rev=1.5' id='CustomerChurnAnalysis_17841863655100' path='/workbooks' revision='1.5' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='telco_customer_churn_cleaned+' inline='true' name='federated.0zxghjr0xpu1s415kofit1533nhz' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='telco_customer_churn_cleaned' name='textscan.1svuldj0rg8ad61d0eozb092xttj'>
+            <connection class='textscan' directory='C:/Users/Devisri/OneDrive/Desktop/Customer_Churn_Analytics/Dataset/Processed' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[telco_customer_churn_cleaned.csv].[customer_id]' />
+              <expression op='[customer_risk_scores.csv].[customer_id]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.1svuldj0rg8ad61d0eozb092xttj' name='telco_customer_churn_cleaned.csv' table='[telco_customer_churn_cleaned#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+              <column datatype='string' name='customer_id' ordinal='0' />
+              <column datatype='string' name='gender' ordinal='1' />
+              <column datatype='integer' name='senior_citizen' ordinal='2' />
+              <column datatype='string' name='partner' ordinal='3' />
+              <column datatype='string' name='dependents' ordinal='4' />
+              <column datatype='integer' name='tenure' ordinal='5' />
+              <column datatype='string' name='phone_service' ordinal='6' />
+              <column datatype='string' name='multiple_lines' ordinal='7' />
+              <column datatype='string' name='internet_service' ordinal='8' />
+              <column datatype='string' name='online_security' ordinal='9' />
+              <column datatype='string' name='online_backup' ordinal='10' />
+              <column datatype='string' name='device_protection' ordinal='11' />
+              <column datatype='string' name='tech_support' ordinal='12' />
+              <column datatype='string' name='streaming_tv' ordinal='13' />
+              <column datatype='string' name='streaming_movies' ordinal='14' />
+              <column datatype='string' name='contract' ordinal='15' />
+              <column datatype='string' name='paperless_billing' ordinal='16' />
+              <column datatype='string' name='payment_method' ordinal='17' />
+              <column datatype='real' name='monthly_charges' ordinal='18' />
+              <column datatype='real' name='total_charges' ordinal='19' />
+              <column datatype='string' name='churn' ordinal='20' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1svuldj0rg8ad61d0eozb092xttj' name='customer_risk_scores.csv' table='[customer_risk_scores#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+              <column datatype='string' name='customer_id' ordinal='0' />
+              <column datatype='string' name='Predicted_Churn' ordinal='1' />
+              <column datatype='real' name='Churn_Probability' ordinal='2' />
+              <column datatype='string' name='Risk_Level' ordinal='3' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[Churn_Probability]' value='[customer_risk_scores.csv].[Churn_Probability]' />
+          <map key='[Predicted_Churn]' value='[customer_risk_scores.csv].[Predicted_Churn]' />
+          <map key='[Risk_Level]' value='[customer_risk_scores.csv].[Risk_Level]' />
+          <map key='[churn]' value='[telco_customer_churn_cleaned.csv].[churn]' />
+          <map key='[contract]' value='[telco_customer_churn_cleaned.csv].[contract]' />
+          <map key='[customer_id (customer_risk_scores.csv)]' value='[customer_risk_scores.csv].[customer_id]' />
+          <map key='[customer_id]' value='[telco_customer_churn_cleaned.csv].[customer_id]' />
+          <map key='[dependents]' value='[telco_customer_churn_cleaned.csv].[dependents]' />
+          <map key='[device_protection]' value='[telco_customer_churn_cleaned.csv].[device_protection]' />
+          <map key='[gender]' value='[telco_customer_churn_cleaned.csv].[gender]' />
+          <map key='[internet_service]' value='[telco_customer_churn_cleaned.csv].[internet_service]' />
+          <map key='[monthly_charges]' value='[telco_customer_churn_cleaned.csv].[monthly_charges]' />
+          <map key='[multiple_lines]' value='[telco_customer_churn_cleaned.csv].[multiple_lines]' />
+          <map key='[online_backup]' value='[telco_customer_churn_cleaned.csv].[online_backup]' />
+          <map key='[online_security]' value='[telco_customer_churn_cleaned.csv].[online_security]' />
+          <map key='[paperless_billing]' value='[telco_customer_churn_cleaned.csv].[paperless_billing]' />
+          <map key='[partner]' value='[telco_customer_churn_cleaned.csv].[partner]' />
+          <map key='[payment_method]' value='[telco_customer_churn_cleaned.csv].[payment_method]' />
+          <map key='[phone_service]' value='[telco_customer_churn_cleaned.csv].[phone_service]' />
+          <map key='[senior_citizen]' value='[telco_customer_churn_cleaned.csv].[senior_citizen]' />
+          <map key='[streaming_movies]' value='[telco_customer_churn_cleaned.csv].[streaming_movies]' />
+          <map key='[streaming_tv]' value='[telco_customer_churn_cleaned.csv].[streaming_tv]' />
+          <map key='[tech_support]' value='[telco_customer_churn_cleaned.csv].[tech_support]' />
+          <map key='[tenure]' value='[telco_customer_churn_cleaned.csv].[tenure]' />
+          <map key='[total_charges]' value='[telco_customer_churn_cleaned.csv].[total_charges]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[customer_risk_scores.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_id]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>customer_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[gender]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>gender</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>senior_citizen</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[senior_citizen]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>senior_citizen</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>partner</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[partner]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>partner</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dependents</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[dependents]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>dependents</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tenure</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[tenure]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>tenure</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>phone_service</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[phone_service]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>phone_service</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>multiple_lines</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[multiple_lines]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>multiple_lines</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>internet_service</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[internet_service]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>internet_service</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>online_security</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[online_security]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>online_security</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>online_backup</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[online_backup]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>online_backup</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>device_protection</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[device_protection]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>device_protection</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tech_support</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[tech_support]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>tech_support</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>streaming_tv</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[streaming_tv]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>streaming_tv</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>streaming_movies</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[streaming_movies]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>streaming_movies</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>contract</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[contract]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>contract</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>paperless_billing</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[paperless_billing]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>paperless_billing</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>payment_method</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[payment_method]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>payment_method</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>monthly_charges</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[monthly_charges]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>monthly_charges</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_charges</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[total_charges]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>total_charges</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>churn</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[churn]</local-name>
+            <parent-name>[telco_customer_churn_cleaned.csv]</parent-name>
+            <remote-alias>churn</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_id (customer_risk_scores.csv)]</local-name>
+            <parent-name>[customer_risk_scores.csv]</parent-name>
+            <remote-alias>customer_id</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Predicted_Churn</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Predicted_Churn]</local-name>
+            <parent-name>[customer_risk_scores.csv]</parent-name>
+            <remote-alias>Predicted_Churn</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Churn_Probability</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Churn_Probability]</local-name>
+            <parent-name>[customer_risk_scores.csv]</parent-name>
+            <remote-alias>Churn_Probability</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Risk_Level</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Risk_Level]</local-name>
+            <parent-name>[customer_risk_scores.csv]</parent-name>
+            <remote-alias>Risk_Level</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Churn Rate' datatype='real' default-format='p0.00%' name='[Calculation_1291121547157504]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNT(&#13;&#10;IF [churn] = &quot;Yes&quot; THEN [customer_id] END&#13;&#10;)&#13;&#10;/&#13;&#10;COUNT([customer_id])' />
+      </column>
+      <column caption='Churn Probability' datatype='real' name='[Churn_Probability]' role='measure' type='quantitative' />
+      <column caption='Predicted Churn' datatype='string' name='[Predicted_Churn]' role='dimension' type='nominal' />
+      <column caption='Risk Level' datatype='string' name='[Risk_Level]' role='dimension' type='nominal' />
+      <column caption='telco_customer_churn_cleaned.csv' datatype='table' name='[__tableau_internal_object_id__].[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]' role='measure' type='quantitative' />
+      <column caption='Churn' datatype='string' name='[churn]' role='dimension' type='nominal' />
+      <column caption='Contract' datatype='string' name='[contract]' role='dimension' type='nominal' />
+      <column caption='Customer Id (Customer Risk Scores.Csv)' datatype='string' name='[customer_id (customer_risk_scores.csv)]' role='dimension' type='nominal' />
+      <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+      <column caption='Dependents' datatype='string' name='[dependents]' role='dimension' type='nominal' />
+      <column caption='Device Protection' datatype='string' name='[device_protection]' role='dimension' type='nominal' />
+      <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+      <column caption='Internet Service' datatype='string' name='[internet_service]' role='dimension' type='nominal' />
+      <column caption='Monthly Charges' datatype='real' name='[monthly_charges]' role='measure' type='quantitative' />
+      <column caption='Multiple Lines' datatype='string' name='[multiple_lines]' role='dimension' type='nominal' />
+      <column caption='Online Backup' datatype='string' name='[online_backup]' role='dimension' type='nominal' />
+      <column caption='Online Security' datatype='string' name='[online_security]' role='dimension' type='nominal' />
+      <column caption='Paperless Billing' datatype='string' name='[paperless_billing]' role='dimension' type='nominal' />
+      <column caption='Partner' datatype='string' name='[partner]' role='dimension' type='nominal' />
+      <column caption='Payment Method' datatype='string' name='[payment_method]' role='dimension' type='nominal' />
+      <column caption='Phone Service' datatype='string' name='[phone_service]' role='dimension' type='nominal' />
+      <column caption='Senior Citizen' datatype='integer' name='[senior_citizen]' role='measure' type='quantitative' />
+      <column caption='Streaming Movies' datatype='string' name='[streaming_movies]' role='dimension' type='nominal' />
+      <column caption='Streaming Tv' datatype='string' name='[streaming_tv]' role='dimension' type='nominal' />
+      <column caption='Tech Support' datatype='string' name='[tech_support]' role='dimension' type='nominal' />
+      <column caption='Tenure' datatype='integer' name='[tenure]' role='measure' type='quantitative' />
+      <column caption='Total Charges' datatype='real' name='[total_charges]' role='measure' type='quantitative' />
+      <column-instance column='[Risk_Level]' derivation='None' name='[none:Risk_Level:nk]' pivot='key' type='nominal' />
+      <column-instance column='[churn]' derivation='None' name='[none:churn:nk]' pivot='key' type='nominal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/Devisri/AppData/Local/Temp/TableauTemp/#TableauTemp_1lmkuqf05t40og12t2a0b1exqa7v.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='07/05/2026 04:28:53 PM' username=''>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <cols>
+            <map key='[Churn_Probability]' value='[Extract].[Churn_Probability]' />
+            <map key='[Predicted_Churn]' value='[Extract].[Predicted_Churn]' />
+            <map key='[Risk_Level]' value='[Extract].[Risk_Level]' />
+            <map key='[churn]' value='[Extract].[churn]' />
+            <map key='[contract]' value='[Extract].[contract]' />
+            <map key='[customer_id (customer_risk_scores.csv)]' value='[Extract].[customer_id]' />
+            <map key='[customer_id]' value='[Extract].[customer_id1]' />
+            <map key='[dependents]' value='[Extract].[dependents]' />
+            <map key='[device_protection]' value='[Extract].[device_protection]' />
+            <map key='[gender]' value='[Extract].[gender]' />
+            <map key='[internet_service]' value='[Extract].[internet_service]' />
+            <map key='[monthly_charges]' value='[Extract].[monthly_charges]' />
+            <map key='[multiple_lines]' value='[Extract].[multiple_lines]' />
+            <map key='[online_backup]' value='[Extract].[online_backup]' />
+            <map key='[online_security]' value='[Extract].[online_security]' />
+            <map key='[paperless_billing]' value='[Extract].[paperless_billing]' />
+            <map key='[partner]' value='[Extract].[partner]' />
+            <map key='[payment_method]' value='[Extract].[payment_method]' />
+            <map key='[phone_service]' value='[Extract].[phone_service]' />
+            <map key='[senior_citizen]' value='[Extract].[senior_citizen]' />
+            <map key='[streaming_movies]' value='[Extract].[streaming_movies]' />
+            <map key='[streaming_tv]' value='[Extract].[streaming_tv]' />
+            <map key='[tech_support]' value='[Extract].[tech_support]' />
+            <map key='[tenure]' value='[Extract].[tenure]' />
+            <map key='[total_charges]' value='[Extract].[total_charges]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>customer_id1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[customer_id]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>customer_id1</remote-alias>
+              <ordinal>0</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7043</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>gender</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[gender]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>gender</remote-alias>
+              <ordinal>1</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>senior_citizen</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[senior_citizen]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>senior_citizen</remote-alias>
+              <ordinal>2</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>partner</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[partner]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>partner</remote-alias>
+              <ordinal>3</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>dependents</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[dependents]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>dependents</remote-alias>
+              <ordinal>4</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>tenure</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[tenure]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>tenure</remote-alias>
+              <ordinal>5</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>73</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>phone_service</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[phone_service]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>phone_service</remote-alias>
+              <ordinal>6</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>multiple_lines</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[multiple_lines]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>multiple_lines</remote-alias>
+              <ordinal>7</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>internet_service</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[internet_service]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>internet_service</remote-alias>
+              <ordinal>8</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>online_security</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[online_security]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>online_security</remote-alias>
+              <ordinal>9</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>online_backup</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[online_backup]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>online_backup</remote-alias>
+              <ordinal>10</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>device_protection</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[device_protection]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>device_protection</remote-alias>
+              <ordinal>11</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>tech_support</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[tech_support]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>tech_support</remote-alias>
+              <ordinal>12</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>streaming_tv</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[streaming_tv]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>streaming_tv</remote-alias>
+              <ordinal>13</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>streaming_movies</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[streaming_movies]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>streaming_movies</remote-alias>
+              <ordinal>14</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>contract</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[contract]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>contract</remote-alias>
+              <ordinal>15</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>paperless_billing</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[paperless_billing]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>paperless_billing</remote-alias>
+              <ordinal>16</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>payment_method</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[payment_method]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>payment_method</remote-alias>
+              <ordinal>17</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>monthly_charges</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[monthly_charges]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>monthly_charges</remote-alias>
+              <ordinal>18</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1402</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>total_charges</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[total_charges]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>total_charges</remote-alias>
+              <ordinal>19</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4002</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>churn</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[churn]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>churn</remote-alias>
+              <ordinal>20</ordinal>
+              <family>telco_customer_churn_cleaned.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>customer_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[customer_id (customer_risk_scores.csv)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>customer_id</remote-alias>
+              <ordinal>21</ordinal>
+              <family>customer_risk_scores.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7043</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Predicted_Churn</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Predicted_Churn]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Predicted_Churn</remote-alias>
+              <ordinal>22</ordinal>
+              <family>customer_risk_scores.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Churn_Probability</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Churn_Probability]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Churn_Probability</remote-alias>
+              <ordinal>23</ordinal>
+              <family>customer_risk_scores.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6787</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Risk_Level</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Risk_Level]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Risk_Level</remote-alias>
+              <ordinal>24</ordinal>
+              <family>customer_risk_scores.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:churn:nk]' type='palette'>
+            <map to='#59a14f'>
+              <bucket>&quot;No&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Yes&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Risk_Level:nk]' type='palette'>
+            <map to='#59a14f'>
+              <bucket>&quot;Low Risk&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;High Risk&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Medium Risk&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='telco_customer_churn_cleaned.csv' id='telco_customer_churn_cleaned.csv_69B29873780A4D3DAB81C89434E8B498'>
+            <properties context=''>
+              <relation join='inner' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[telco_customer_churn_cleaned.csv].[customer_id]' />
+                    <expression op='[customer_risk_scores.csv].[customer_id]' />
+                  </expression>
+                </clause>
+                <relation connection='textscan.1svuldj0rg8ad61d0eozb092xttj' name='telco_customer_churn_cleaned.csv' table='[telco_customer_churn_cleaned#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                    <column datatype='string' name='customer_id' ordinal='0' />
+                    <column datatype='string' name='gender' ordinal='1' />
+                    <column datatype='integer' name='senior_citizen' ordinal='2' />
+                    <column datatype='string' name='partner' ordinal='3' />
+                    <column datatype='string' name='dependents' ordinal='4' />
+                    <column datatype='integer' name='tenure' ordinal='5' />
+                    <column datatype='string' name='phone_service' ordinal='6' />
+                    <column datatype='string' name='multiple_lines' ordinal='7' />
+                    <column datatype='string' name='internet_service' ordinal='8' />
+                    <column datatype='string' name='online_security' ordinal='9' />
+                    <column datatype='string' name='online_backup' ordinal='10' />
+                    <column datatype='string' name='device_protection' ordinal='11' />
+                    <column datatype='string' name='tech_support' ordinal='12' />
+                    <column datatype='string' name='streaming_tv' ordinal='13' />
+                    <column datatype='string' name='streaming_movies' ordinal='14' />
+                    <column datatype='string' name='contract' ordinal='15' />
+                    <column datatype='string' name='paperless_billing' ordinal='16' />
+                    <column datatype='string' name='payment_method' ordinal='17' />
+                    <column datatype='real' name='monthly_charges' ordinal='18' />
+                    <column datatype='real' name='total_charges' ordinal='19' />
+                    <column datatype='string' name='churn' ordinal='20' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1svuldj0rg8ad61d0eozb092xttj' name='customer_risk_scores.csv' table='[customer_risk_scores#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                    <column datatype='string' name='customer_id' ordinal='0' />
+                    <column datatype='string' name='Predicted_Churn' ordinal='1' />
+                    <column datatype='real' name='Churn_Probability' ordinal='2' />
+                    <column datatype='string' name='Risk_Level' ordinal='3' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Churn by Contract'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontsize='18'>Customer Churn by Contract Type</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <repository-location derived-from='https://public.tableau.com/workbooks/CustomerChurnAnalysis_17841863655100/ChurnbyContract?rev=' id='131909030' path='/workbooks/CustomerChurnAnalysis_17841863655100' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='telco_customer_churn_cleaned+' name='federated.0zxghjr0xpu1s415kofit1533nhz' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zxghjr0xpu1s415kofit1533nhz'>
+            <column caption='Churn' datatype='string' name='[churn]' role='dimension' type='nominal' />
+            <column caption='Contract' datatype='string' name='[contract]' role='dimension' type='nominal' />
+            <column-instance column='[customer_id]' derivation='CountD' name='[ctd:customer_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+            <column-instance column='[churn]' derivation='None' name='[none:churn:nk]' pivot='key' type='nominal' />
+            <column-instance column='[contract]' derivation='None' name='[none:contract:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:contract:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]' shelf='rows' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]' field-type='quantitative' max='2761' min='1184' range-type='fixed' scope='cols' type='space' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='588' />
+                <format attr='maxwidth' value='588' />
+                <format attr='minheight' value='60' />
+                <format attr='maxheight' value='60' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0zxghjr0xpu1s415kofit1533nhz].[none:contract:nk]</rows>
+        <cols>[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]</cols>
+      </table>
+      <simple-id uuid='{CA1CCB02-6FE1-4C52-8482-D9CE24BC7952}' />
+    </worksheet>
+    <worksheet name='Churn by Internet Service'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontsize='18'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <repository-location derived-from='https://public.tableau.com/workbooks/CustomerChurnAnalysis_17841863655100/ChurnbyInternetService?rev=' id='131909032' path='/workbooks/CustomerChurnAnalysis_17841863655100' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='telco_customer_churn_cleaned+' name='federated.0zxghjr0xpu1s415kofit1533nhz' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zxghjr0xpu1s415kofit1533nhz'>
+            <column caption='Churn' datatype='string' name='[churn]' role='dimension' type='nominal' />
+            <column-instance column='[customer_id]' derivation='CountD' name='[ctd:customer_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+            <column caption='Internet Service' datatype='string' name='[internet_service]' role='dimension' type='nominal' />
+            <column-instance column='[churn]' derivation='None' name='[none:churn:nk]' pivot='key' type='nominal' />
+            <column-instance column='[internet_service]' derivation='None' name='[none:internet_service:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:internet_service:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]' shelf='rows' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-mode' value='selection' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0zxghjr0xpu1s415kofit1533nhz].[none:internet_service:nk]</rows>
+        <cols>[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]</cols>
+      </table>
+      <simple-id uuid='{AD48DAC2-DA22-4B41-8A75-8481F7122FF0}' />
+    </worksheet>
+    <worksheet name='Customer Churn by Payment Method'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontsize='18'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <repository-location derived-from='https://public.tableau.com/workbooks/CustomerChurnAnalysis_17841863655100/CustomerChurnbyPaymentMethod?rev=' id='131909034' path='/workbooks/CustomerChurnAnalysis_17841863655100' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='telco_customer_churn_cleaned+' name='federated.0zxghjr0xpu1s415kofit1533nhz' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zxghjr0xpu1s415kofit1533nhz'>
+            <column caption='Churn' datatype='string' name='[churn]' role='dimension' type='nominal' />
+            <column-instance column='[customer_id]' derivation='CountD' name='[ctd:customer_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+            <column-instance column='[churn]' derivation='None' name='[none:churn:nk]' pivot='key' type='nominal' />
+            <column-instance column='[payment_method]' derivation='None' name='[none:payment_method:nk]' pivot='key' type='nominal' />
+            <column caption='Payment Method' datatype='string' name='[payment_method]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:payment_method:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]' shelf='rows' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]' field-type='quantitative' max='2424' min='73' range-type='fixed' scope='cols' type='space' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0zxghjr0xpu1s415kofit1533nhz].[none:payment_method:nk]</rows>
+        <cols>[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]</cols>
+      </table>
+      <simple-id uuid='{3866DBF2-BB71-450E-9BC7-2A713D68549B}' />
+    </worksheet>
+    <worksheet name='KPI - Churn Customers'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontsize='18'>Churn Customers</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <repository-location derived-from='https://public.tableau.com/workbooks/CustomerChurnAnalysis_17841863655100/KPI-ChurnCustomers?rev=' id='131909027' path='/workbooks/CustomerChurnAnalysis_17841863655100' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='telco_customer_churn_cleaned+' name='federated.0zxghjr0xpu1s415kofit1533nhz' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zxghjr0xpu1s415kofit1533nhz'>
+            <column caption='Churn' datatype='string' name='[churn]' role='dimension' type='nominal' />
+            <column-instance column='[customer_id]' derivation='CountD' name='[ctd:customer_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+            <column-instance column='[churn]' derivation='None' name='[none:churn:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]'>
+            <groupfilter function='member' level='[none:churn:nk]' member='&quot;Yes&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontsize='18'>&lt;</run>
+                <run bold='true' fontsize='18'>[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]</run>
+                <run bold='true' fontsize='18'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+                <format attr='vertical-align' value='center' />
+                <format attr='wrap' value='off' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{21DB4AFB-0739-4CA6-9FAC-3F74488D9685}' />
+    </worksheet>
+    <worksheet name='KPI - Churn Rate'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontsize='18'>Churn Rate</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <repository-location derived-from='https://public.tableau.com/workbooks/CustomerChurnAnalysis_17841863655100/KPI-ChurnRate?rev=' id='131909028' path='/workbooks/CustomerChurnAnalysis_17841863655100' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='telco_customer_churn_cleaned+' name='federated.0zxghjr0xpu1s415kofit1533nhz' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zxghjr0xpu1s415kofit1533nhz'>
+            <column caption='Churn Rate' datatype='real' default-format='p0.00%' name='[Calculation_1291121547157504]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNT(&#13;&#10;IF [churn] = &quot;Yes&quot; THEN [customer_id] END&#13;&#10;)&#13;&#10;/&#13;&#10;COUNT([customer_id])' />
+            </column>
+            <column caption='Churn' datatype='string' name='[churn]' role='dimension' type='nominal' />
+            <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1291121547157504]' derivation='User' name='[usr:Calculation_1291121547157504:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0zxghjr0xpu1s415kofit1533nhz].[usr:Calculation_1291121547157504:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontsize='18'>&lt;</run>
+                <run bold='true' fontsize='18'>[federated.0zxghjr0xpu1s415kofit1533nhz].[usr:Calculation_1291121547157504:qk]</run>
+                <run bold='true' fontsize='18'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{A3D9727E-F4C0-41B2-A4C9-1915436D7D5B}' />
+    </worksheet>
+    <worksheet name='KPI - High Risk Customers'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontsize='18'>High Risk Customers</run>
+            <run>Æ&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <repository-location derived-from='https://public.tableau.com/workbooks/CustomerChurnAnalysis_17841863655100/KPI-HighRiskCustomers?rev=' id='131909029' path='/workbooks/CustomerChurnAnalysis_17841863655100' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='telco_customer_churn_cleaned+' name='federated.0zxghjr0xpu1s415kofit1533nhz' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zxghjr0xpu1s415kofit1533nhz'>
+            <column caption='Risk Level' datatype='string' name='[Risk_Level]' role='dimension' type='nominal' />
+            <column-instance column='[customer_id]' derivation='CountD' name='[ctd:customer_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+            <column-instance column='[Risk_Level]' derivation='None' name='[none:Risk_Level:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:Risk_Level:nk]'>
+            <groupfilter function='member' level='[none:Risk_Level:nk]' member='&quot;High Risk&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0zxghjr0xpu1s415kofit1533nhz].[none:Risk_Level:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontsize='18'>&lt;</run>
+                <run bold='true' fontsize='18'>[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]</run>
+                <run bold='true' fontsize='18'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{BC256F5C-84E0-4A22-96F4-C7604C338E0F}' />
+    </worksheet>
+    <worksheet name='KPI - Total Customers'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontsize='18'>Total Customers</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <repository-location derived-from='https://public.tableau.com/workbooks/CustomerChurnAnalysis_17841863655100/KPI-TotalCustomers?rev=' id='131909026' path='/workbooks/CustomerChurnAnalysis_17841863655100' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='telco_customer_churn_cleaned+' name='federated.0zxghjr0xpu1s415kofit1533nhz' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zxghjr0xpu1s415kofit1533nhz'>
+            <column-instance column='[customer_id]' derivation='CountD' name='[ctd:customer_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontname='Total Customers' fontsize='18'>&lt;</run>
+                <run fontname='Total Customers' fontsize='18'>[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]</run>
+                <run fontname='Total Customers' fontsize='18'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='vertical-align' value='center' />
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{7C47C0F2-B5AD-42F9-A239-03EAC57F7DE3}' />
+    </worksheet>
+    <worksheet name='Monthly Charges by Churn'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontsize='18'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <repository-location derived-from='https://public.tableau.com/workbooks/CustomerChurnAnalysis_17841863655100/MonthlyChargesbyChurn?rev=' id='131909033' path='/workbooks/CustomerChurnAnalysis_17841863655100' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='telco_customer_churn_cleaned+' name='federated.0zxghjr0xpu1s415kofit1533nhz' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zxghjr0xpu1s415kofit1533nhz'>
+            <column-instance column='[monthly_charges]' derivation='Avg' name='[avg:monthly_charges:qk]' pivot='key' type='quantitative' />
+            <column caption='Churn' datatype='string' name='[churn]' role='dimension' type='nominal' />
+            <column caption='Monthly Charges' datatype='real' name='[monthly_charges]' role='measure' type='quantitative' />
+            <column-instance column='[churn]' derivation='None' name='[none:churn:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]' direction='ASC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0zxghjr0xpu1s415kofit1533nhz].[avg:monthly_charges:qk]' shelf='columns' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]' />
+            </encodings>
+            <reference-line axis-column='[federated.0zxghjr0xpu1s415kofit1533nhz].[avg:monthly_charges:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.0zxghjr0xpu1s415kofit1533nhz].[avg:monthly_charges:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0zxghjr0xpu1s415kofit1533nhz].[avg:monthly_charges:qk]</rows>
+        <cols>[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]</cols>
+      </table>
+      <simple-id uuid='{F9350B3E-0521-493E-AC3E-12FC29861462}' />
+    </worksheet>
+    <worksheet name='Risk Level Distribution'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontsize='18'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <repository-location derived-from='https://public.tableau.com/workbooks/CustomerChurnAnalysis_17841863655100/RiskLevelDistribution?rev=' id='131909031' path='/workbooks/CustomerChurnAnalysis_17841863655100' revision='' />
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='telco_customer_churn_cleaned+' name='federated.0zxghjr0xpu1s415kofit1533nhz' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zxghjr0xpu1s415kofit1533nhz'>
+            <column caption='Risk Level' datatype='string' name='[Risk_Level]' role='dimension' type='nominal' />
+            <column-instance column='[customer_id]' derivation='CountD' name='[ctd:customer_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+            <column-instance column='[Risk_Level]' derivation='None' name='[none:Risk_Level:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:Risk_Level:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]' shelf='rows' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='height-header' value='18' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:Risk_Level:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0zxghjr0xpu1s415kofit1533nhz].[none:Risk_Level:nk]</rows>
+        <cols>[federated.0zxghjr0xpu1s415kofit1533nhz].[ctd:customer_id:qk]</cols>
+      </table>
+      <simple-id uuid='{3BEE805D-7F38-496D-921A-AA6CD55A0F52}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#000000' fontname='Benton Sans Book'>Customer Churn Analytics Dashboard</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <repository-location derived-from='https://public.tableau.com/workbooks/CustomerChurnAnalysis_17841863655100/Dashboard1?rev=' id='131909035' path='/workbooks/CustomerChurnAnalysis_17841863655100' revision='' />
+      <style />
+      <size maxheight='1760' maxwidth='1420' minheight='960' minwidth='1420' sizing-mode='range' />
+      <zones>
+        <zone h='100000' id='7' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98334' id='12' param='vert' type-v2='layout-flow' w='98874' x='563' y='833'>
+            <zone h='4583' id='13' type-v2='title' w='98874' x='563' y='833'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='93751' id='10' param='vert' type-v2='layout-flow' w='98874' x='563' y='5416'>
+              <zone h='93751' id='8' type-v2='layout-basic' w='98874' x='563' y='5416' />
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='26979' id='21' param='horz' type-v2='layout-flow' w='100352' x='423' y='17604' />
+        <zone h='11103' id='4' name='KPI - Total Customers' w='23278' x='1889' y='4779' />
+        <zone h='11176' id='6' name='KPI - Churn Customers' w='23035' x='25777' y='4632' />
+        <zone h='10735' id='15' name='KPI - Churn Rate' w='23705' x='49421' y='4632' />
+        <zone h='11397' id='16' name='KPI - High Risk Customers' w='23218' x='74223' y='4118' />
+        <zone h='21979' id='17' name='Churn by Contract' w='47324' x='493' y='17604' />
+        <zone h='21771' id='20' name='Risk Level Distribution' w='52535' x='48028' y='17708' />
+        <zone h='25729' id='22' param='horz' type-v2='layout-flow' w='100845' x='423' y='44896' />
+        <zone h='28021' id='23' name='Churn by Internet Service' w='48662' x='423' y='39792' />
+        <zone h='27500' id='24' name='Monthly Charges by Churn' w='51479' x='49648' y='40313' />
+        <zone h='26458' id='27' name='Customer Churn by Payment Method' w='100704' x='141' y='70104' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <layout-options>
+            <title>
+              <formatted-text>
+                <run bold='true' fontalignment='1' fontcolor='#000000' fontname='Benton Sans Book'>Customer Churn Analytics Dashboard</run>
+              </formatted-text>
+            </title>
+          </layout-options>
+          <size maxheight='2350' minheight='2350' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='43' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98334' id='42' param='vert' type-v2='layout-flow' w='98874' x='563' y='833'>
+                <zone h='4583' id='13' type-v2='title' w='98874' x='563' y='833'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='201' h='11397' id='16' is-fixed='true' name='KPI - High Risk Customers' w='23218' x='74223' y='4118'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='196' h='11176' id='6' is-fixed='true' name='KPI - Churn Customers' w='23035' x='25777' y='4632'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='188' h='10735' id='15' is-fixed='true' name='KPI - Churn Rate' w='23705' x='49421' y='4632'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='196' h='11103' id='4' is-fixed='true' name='KPI - Total Customers' w='23278' x='1889' y='4779'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='21979' id='17' is-fixed='true' name='Churn by Contract' w='47324' x='493' y='17604'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='21771' id='20' is-fixed='true' name='Risk Level Distribution' w='52535' x='48028' y='17708'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='28021' id='23' is-fixed='true' name='Churn by Internet Service' w='48662' x='423' y='39792'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='27500' id='24' is-fixed='true' name='Monthly Charges by Churn' w='51479' x='49648' y='40313'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='26458' id='27' is-fixed='true' name='Customer Churn by Payment Method' w='100704' x='141' y='70104'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{0F4197B6-BB98-43E3-98B9-4506FE3C5EB0}' />
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' name='KPI - Total Customers'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{6FD9D4BA-ED3B-4F9D-9E77-C8E91CC9F5A3}' />
+    </window>
+    <window class='worksheet' name='KPI - Churn Customers'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{7D0319EC-2535-40BE-A858-16A0C4ABFAC8}' />
+    </window>
+    <window class='worksheet' name='KPI - Churn Rate'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{48368075-EDBC-4810-BB8C-729CDC1646B3}' />
+    </window>
+    <window class='worksheet' name='KPI - High Risk Customers'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{2DCC5831-409E-4844-BDA0-8AD072C2F1DE}' />
+    </window>
+    <window class='worksheet' name='Churn by Contract'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{17D2DE32-2EC8-459E-B0AB-65FC59CFC783}' />
+    </window>
+    <window class='worksheet' name='Risk Level Distribution'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:Risk_Level:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{BE3F3474-834F-44FF-88DB-887A746EEAB2}' />
+    </window>
+    <window class='worksheet' name='Churn by Internet Service'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{051D7B51-9F17-4DF8-B30E-9640600BAF7D}' />
+    </window>
+    <window class='worksheet' name='Monthly Charges by Churn'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{2B14FE0C-131E-465A-B0FE-81106C24E7A0}' />
+    </window>
+    <window class='worksheet' name='Customer Churn by Payment Method'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3414E112-15AB-4585-832C-18FC6AABDC3D}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Churn by Contract'>
+          <highlight field='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]'>
+            <bucket-selection />
+          </highlight>
+        </viewpoint>
+        <viewpoint name='Churn by Internet Service'>
+          <highlight field='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:churn:nk]'>
+            <bucket-selection />
+          </highlight>
+        </viewpoint>
+        <viewpoint name='Customer Churn by Payment Method' />
+        <viewpoint name='KPI - Churn Customers'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='KPI - Churn Rate'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='KPI - High Risk Customers'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='KPI - Total Customers'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Monthly Charges by Churn'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Risk Level Distribution'>
+          <highlight field='[federated.0zxghjr0xpu1s415kofit1533nhz].[none:Risk_Level:nk]'>
+            <bucket-selection />
+          </highlight>
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{A3BC713D-A876-46CC-8CDD-58276334C079}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Dashboard 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
